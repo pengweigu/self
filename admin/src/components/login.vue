@@ -1,6 +1,12 @@
 <!--登录页-->
 <template>
+  <!--顶部-->
   <el-form :inline="true" :model="formlogin" class="demo-form-inline">
+    <el-carousel :interval="4000" type="card" height="200px">
+      <el-carousel-item v-for="item in items" :key="item">
+        <h3>{{ item }}</h3>
+      </el-carousel-item>
+    </el-carousel>
     <!--1-->
     <el-row>
     <el-form-item label="账号">
@@ -31,6 +37,9 @@ export default {
   name: 'login',
   data () {
     return {
+      items: [
+        '所有失去的，都会以另外一种方式归来，早安！','笑只是个表情，与快乐无关!','北风吹来，气温大降，你的冷暖，我记心上!'
+      ],
       formlogin: {
         account: '',
         password: ''
@@ -54,3 +63,18 @@ export default {
   }
 }
 </script>
+<style>
+  .el-carousel__item h3 {
+    color: #000000;
+    font-size: 14px;
+    opacity: 0.75;
+    line-height: 200px;
+    margin: 0;
+  }
+  .el-carousel__item:nth-child(2n) {
+    background-color: #85bf71;
+  }
+  .el-carousel__item:nth-child(2n+1) {
+    background-color: #8585e6;
+  }
+</style>
