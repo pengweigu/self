@@ -1,15 +1,41 @@
 package com.manager.server.api;
 
+import com.fasterxml.jackson.databind.util.JSONPObject;
+import com.manager.server.entity.AdminUser;
+import com.manager.server.response.BaseResult;
+import com.manager.server.response.admin.AdminBaseResult;
 import com.manager.server.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * 后台用户api
+ */
 @RestController
 @RequestMapping("/admin/user")
 public class AdminUserApi {
 
     @Autowired
     private AdminService adminService;
+
+    @RequestMapping("/dologin.json")
+    @ResponseBody
+    public BaseResult adminUserDoLogin(@RequestBody @Validated AdminUser adminUser, BindingResult bindingResult){
+        AdminBaseResult result = new AdminBaseResult();
+        if(bindingResult.hasErrors()){
+            result.setIsSuccess("false");
+            FieldError fieldError = bindingResult.getFieldErrors().get(0);
+            result.setMsgInfo(fieldError.getField() + fieldError.getDefaultMessage());
+            return result;
+        }
+        result.setIsSuccess("true");
+        return result;
+    }
 
 }

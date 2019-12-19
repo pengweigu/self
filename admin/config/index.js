@@ -6,11 +6,15 @@ const path = require('path')
 
 module.exports = {
   dev: {
-
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/admin':{
+        target: "http://127.0.0.1:1850",
+        changeOrigin:true
+      }
+    },
 
     // Various Dev Server settings
     host: 'admin.pw.eng', // can be overwritten by process.env.HOST

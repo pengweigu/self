@@ -1,5 +1,6 @@
 package com.manager.server.entity;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 public class AdminUser implements Serializable {
@@ -10,6 +11,7 @@ public class AdminUser implements Serializable {
      *
      * @mbg.generated
      */
+    @NotNull
     private Long id;
 
     /**
@@ -28,6 +30,7 @@ public class AdminUser implements Serializable {
      *
      * @mbg.generated
      */
+    @NotNull
     private String name;
 
     /**

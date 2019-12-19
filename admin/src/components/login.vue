@@ -39,7 +39,14 @@ export default {
   },
   methods: {
     onSubmit() {
-      console.log('submit!');
+      this.$axios.post('/admin/user/dologin.json',{
+        account:'pengwei',
+        password:'123456'
+      }).then(function () {
+
+      }).catch(function (error) {
+
+      });
     },
     onReset() {
       console.log('reset');
