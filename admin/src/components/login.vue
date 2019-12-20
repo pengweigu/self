@@ -22,7 +22,7 @@
     <!--3-->
     <el-row>
     <el-form-item>
-      <el-button type="primary" @click="onSubmit">查询</el-button>
+      <el-button type="primary" @click="onSubmit">登录</el-button>
     </el-form-item>
     <el-form-item>
       <el-button type="primary" @click="onReset">注册</el-button>
@@ -38,7 +38,10 @@ export default {
   data () {
     return {
       items: [
-        '所有失去的，都会以另外一种方式归来，早安！','笑只是个表情，与快乐无关!','北风吹来，气温大降，你的冷暖，我记心上!'
+        '所有失去的，都会以另外一种方式归来，早安！' +
+        '彭伟','笑只是个表情，与快乐无关!' +
+        '彭伟','北风吹来，气温大降，你的冷暖，我记心上!' +
+        '彭伟'
       ],
       formlogin: {
         account: '',
