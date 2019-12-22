@@ -24,6 +24,12 @@ public class AdminUserApi {
     @Autowired
     private AdminService adminService;
 
+    @RequestMapping("/test.json")
+    @ResponseBody
+    public String test(){
+        return "OK";
+    }
+
     @RequestMapping("/dologin.json")
     @ResponseBody
     public BaseResult adminUserDoLogin(@RequestBody @Validated AdminUser adminUser, BindingResult bindingResult){
