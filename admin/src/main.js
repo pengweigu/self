@@ -10,6 +10,7 @@ Vue.prototype.$axios = Axios
 //npm install element-ui -S
 import Element from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+
 Vue.use(Element)
 
 Vue.config.productionTip = false

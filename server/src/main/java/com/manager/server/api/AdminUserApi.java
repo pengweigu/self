@@ -1,7 +1,7 @@
 package com.manager.server.api;
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.manager.server.entity.AdminUser;
+import com.manager.server.enums.EnumAdminUserStatus;
 import com.manager.server.response.BaseResult;
 import com.manager.server.response.admin.AdminBaseResult;
 import com.manager.server.service.AdminService;
@@ -34,7 +34,26 @@ public class AdminUserApi {
             result.setMsgInfo(fieldError.getField() + fieldError.getDefaultMessage());
             return result;
         }
-        result.setIsSuccess("true");
+        boolean login = adminService.dologin(adminUser);
+        result.setIsSuccess(login+"");
+        return result;
+    }
+
+
+
+    @RequestMapping("/reg.json")
+    @ResponseBody
+    public BaseResult adminUserReg(@RequestBody @Validated AdminUser adminUser, BindingResult bindingResult){
+        AdminBaseResult result = new AdminBaseResult();
+        if(bindingResult.hasErrors()){
+            result.setIsSuccess("false");
+            FieldError fieldError = bindingResult.getFieldErrors().get(0);
+            result.setMsgInfo(fieldError.getField() + fieldError.getDefaultMessage());
+            return result;
+        }
+        adminUser.setStatus(EnumAdminUserStatus.NORMAL.getValue());
+        boolean reg = adminService.reg(adminUser);
+        result.setIsSuccess(reg+"");
         return result;
     }
 

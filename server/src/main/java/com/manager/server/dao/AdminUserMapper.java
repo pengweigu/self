@@ -1,9 +1,6 @@
 package com.manager.server.dao;
 
 import com.manager.server.entity.AdminUser;
-import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
 public interface AdminUserMapper {
@@ -46,4 +43,6 @@ public interface AdminUserMapper {
      * @mbg.generated
      */
     int updateByPrimaryKey(AdminUser record);
+
+    List<AdminUser> selectByAdminUser(AdminUser adminUser);
 }
