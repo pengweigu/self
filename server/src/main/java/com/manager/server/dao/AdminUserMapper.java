@@ -43,7 +43,4 @@ public interface AdminUserMapper {
      * @mbg.generated
      */
     int updateByPrimaryKey(AdminUser record);
-
-
-    List<AdminUser> selectByAdminUser(AdminUser adminUser);
 }
