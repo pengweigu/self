@@ -20,6 +20,6 @@ export default {
   margin-top: 60px;
 }
 body {
-  background-image: url("./assets/login_ng.png");
+  background-image: url("assets/logo.png");
 }
 </style>
