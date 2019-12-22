@@ -87,6 +87,7 @@
     },
     methods: {
       onSubmit() {
+        var vm = this;
         //表单校验 ref属性
         this.$refs['formReg'].validate((valid) => {
           if (valid) {//校验通过 提交表单
@@ -102,7 +103,7 @@
                 this.$message.error('注册失败!');
               }
             }).catch(function (error) {
-              this.$message.error('注册失败!');
+              vm.$message.error('注册失败!');
             });
           }
         });
