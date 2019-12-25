@@ -66,16 +66,18 @@ export default {
       var vm = this;
       this.$refs['formlogin'].validate(valid=>{
         if(valid){
-          this.$axios.post('/admin/user/dologin.json',this.formlogin).then(function (res) {
+          vm.$axios.post('/admin/user/dologin.json',this.formlogin).then(function (res) {
             if(res.data.isSuccess == "true"){
               vm.$message({
                 message: '登录成功！',
                 type: 'success'
               });
+              vm.$router.push({path: '/admin/index',params:{}});
             }else{
               vm.$message.error('登录失败！');
             }
           }).catch(function (error) {
+            debugger;
             vm.$message.error('登录异常！');
           });
         }
