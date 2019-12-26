@@ -129,6 +129,7 @@
       },
       handleSelect(key, keyPath) {
         console.log(key, keyPath);
+
       },
     },
     mounted: function () {
@@ -137,11 +138,14 @@
         this.username = user;
       }
     },
+    created() {
+
+    }
   }
 </script>
 
 <style>
-  body {
+  .app {
     background-image: url("/static/imgs/logo_index.png");
   }
 </style>
