@@ -26,4 +26,9 @@ public class AdminServiceImpl implements AdminService {
         List<AdminUser> adminUsers = adminUserMapper.selectByAdminUser(adminUser);
         return adminUsers.size() > 0;
     }
+
+    @Override
+    public List<AdminUser> adminUserList(AdminUser adminUser) {
+        return adminUserMapper.selectByAdminUser(adminUser);
+    }
 }

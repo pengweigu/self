@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * 后台用户api
  */
@@ -24,12 +26,22 @@ public class AdminUserApi {
     @Autowired
     private AdminService adminService;
 
+    /**
+     * 服务测试
+     * @return
+     */
     @RequestMapping("/test.json")
     @ResponseBody
     public String test(){
         return "OK";
     }
 
+    /**
+     * 后台用户登录
+     * @param adminUser
+     * @param bindingResult
+     * @return
+     */
     @RequestMapping("/dologin.json")
     @ResponseBody
     public BaseResult adminUserDoLogin(@RequestBody @Validated AdminUser adminUser, BindingResult bindingResult){
@@ -46,7 +58,12 @@ public class AdminUserApi {
     }
 
 
-
+    /**
+     * 用户信息注册
+     * @param adminUser
+     * @param bindingResult
+     * @return
+     */
     @RequestMapping("/reg.json")
     @ResponseBody
     public BaseResult adminUserReg(@RequestBody @Validated AdminUser adminUser, BindingResult bindingResult){
@@ -63,4 +80,19 @@ public class AdminUserApi {
         return result;
     }
 
+    /**
+     * 列表信息查询
+     * @param adminUser
+     * @param bindingResult
+     * @return
+     */
+    @RequestMapping("/list.json")
+    @ResponseBody
+    public BaseResult adminUserList(@RequestBody AdminUser adminUser){
+        AdminBaseResult<AdminUser> result = new AdminBaseResult();
+        List<AdminUser> adminUsers = adminService.adminUserList(adminUser);
+        result.setItems(adminUsers);
+        result.setIsSuccess((adminUsers.size()>0)+"");
+        return result;
+    }
 }

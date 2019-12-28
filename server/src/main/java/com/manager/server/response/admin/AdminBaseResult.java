@@ -2,11 +2,23 @@ package com.manager.server.response.admin;
 
 import com.manager.server.response.BaseResult;
 
-public class AdminBaseResult extends BaseResult {
+import java.util.List;
+
+public class AdminBaseResult<T> extends BaseResult {
 
     private String isSuccess;
 
     private String msgInfo;
+
+    private List<T> items;
+
+    public List<T> getItems() {
+        return items;
+    }
+
+    public void setItems(List<T> items) {
+        this.items = items;
+    }
 
     public String getIsSuccess() {
         return isSuccess;

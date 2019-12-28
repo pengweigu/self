@@ -72,12 +72,11 @@ export default {
                 message: '登录成功！',
                 type: 'success'
               });
-              vm.$router.push({path: '/admin/index',params:{}});
+              vm.$router.push({name: 'adminIndex',params:{reload:true}});
             }else{
               vm.$message.error('登录失败！');
             }
           }).catch(function (error) {
-            debugger;
             vm.$message.error('登录异常！');
           });
         }
@@ -86,6 +85,9 @@ export default {
     onRegAdminUser() {
       this.$router.push({name: 'adminReg',params:{}});
     }
+  },
+  created() {
+
   }
 }
 </script>
