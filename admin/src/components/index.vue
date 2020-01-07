@@ -30,7 +30,7 @@
           </div>
           <!-- 我是样例菜单 -->
           <el-menu style="float: left;width: 100%;" default-active="" class="el-menu-demo tab-page" mode="horizontal" @select="handleSelect" active-text-color="#409EFF">
-            <el-menu-item index="1">首页</el-menu-item>
+            <el-menu-item @click="topMumClick('adminIndex')" index="1">首页</el-menu-item>
             <el-submenu index="2">
               <template slot="title">我的工作台</template>
               <el-menu-item index="2-1">选项1</el-menu-item>
@@ -94,6 +94,10 @@
         console.log(key +';'+keyPath)
       },
       leftMumClick(path){
+        console.log(path)
+        this.$router.push({name:path})
+      },
+      topMumClick(path){
         console.log(path)
         this.$router.push({name:path})
       }

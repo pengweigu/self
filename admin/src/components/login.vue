@@ -72,7 +72,7 @@ export default {
                 message: '登录成功！',
                 type: 'success'
               });
-              vm.$router.push({name: 'adminIndex',params:{reload:true}});
+              vm.$router.push({name: 'adminIndex',params:{}});
             }else{
               vm.$message.error('登录失败！');
             }
