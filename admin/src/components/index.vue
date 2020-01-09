@@ -100,7 +100,8 @@
       },
       topMumClick(path){
         if(this.$CommonUtils.isNull(path)){
-
+          console.log("topMumClick path is null...");
+          return;
         }
         //如果是首页 设置左边菜单不选中
         if('adminIndex' == path){
