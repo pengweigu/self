@@ -5,6 +5,10 @@ import router from './router'
 import Axios from 'axios'
 Vue.prototype.$axios = Axios
 
+//导入自定义工具js
+import CommonUtils from './user/CommonUtils'
+Vue.prototype.$CommonUtils = CommonUtils
+
 //npm install element-ui -S
 import Element from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'

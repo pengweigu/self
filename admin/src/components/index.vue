@@ -6,8 +6,8 @@
           <img src="@/assets/head.png" :width="isCollapse ? '60' : '60'" height="60" />
         </div>
         <div>
-          <!-- 我是样例菜单 -->
-          <el-menu default-active="" class="el-menu-vertical-demo" @open="handleOpen" :collapse="isCollapse">
+          <!-- 左边菜单 开始-->
+          <el-menu :default-active="defaultActive" class="el-menu-vertical" @open="handleOpen" :collapse="isCollapse">
             <el-submenu index="1">
               <template slot="title">
                 <i class="el-icon-location"></i>
@@ -15,13 +15,13 @@
               </template>
               <el-menu-item-group>
                 <el-menu-item @click="leftMumClick('userList')" index="1-1">后台用户管理</el-menu-item>
-                <el-menu-item index="1-2">后台权限管理</el-menu-item>
+                <el-menu-item @click="leftMumClick('')" index="1-2">后台权限管理</el-menu-item>
               </el-menu-item-group>
             </el-submenu>
           </el-menu>
         </div>
       </el-aside>
-
+      <!--头部菜单 开始-->
       <el-container>
         <el-header class="app-header">
           <div style="width: 60px; cursor: pointer;" @click.prevent="toggleSideBar">
@@ -73,6 +73,7 @@
     name: 'adminIndex',
     data() {//有data 必须返回一个对象
       return {
+        defaultActive: "",
         username: '彭伟',
         isCollapse: false
       }
@@ -98,7 +99,13 @@
         this.$router.push({name:path})
       },
       topMumClick(path){
-        console.log(path)
+        if(this.$CommonUtils.isNull(path)){
+
+        }
+        //如果是首页 设置左边菜单不选中
+        if('adminIndex' == path){
+          this.defaultActive = "1";
+        }
         this.$router.push({name:path})
       }
     },
