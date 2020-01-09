@@ -33,4 +33,19 @@ CREATE TABLE `admin_user`  (
 -- ----------------------------
 INSERT INTO `admin_user` VALUES (1, 'admin', 'admin', '123456', '18518666741', '1', '18518666741@163.com', NULL, 1);
 
+-- ----------------------------
+-- 数据库配置表
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_conf`;
+CREATE TABLE `sys_conf`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `code` varchar(100) NULL DEFAULT NULL,
+  `value` longtext NULL,
+  `status` int(255) NULL DEFAULT NULL,
+  `type` varchar(255) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `index_code`(`code`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8;
+
+
 SET FOREIGN_KEY_CHECKS = 1;
