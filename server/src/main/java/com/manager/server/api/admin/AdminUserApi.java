@@ -1,4 +1,4 @@
-package com.manager.server.api;
+package com.manager.server.api.admin;
 
 import com.manager.server.entity.AdminUser;
 import com.manager.server.enums.EnumAdminUserStatus;
@@ -93,6 +93,20 @@ public class AdminUserApi {
         List<AdminUser> adminUsers = adminService.adminUserList(adminUser);
         result.setItems(adminUsers);
         result.setIsSuccess((adminUsers.size()>0)+"");
+        return result;
+    }
+    /**
+     * 信息删除
+     * @param adminUser
+     * @param bindingResult
+     * @return
+     */
+    @RequestMapping("/delete.json")
+    @ResponseBody
+    public BaseResult adminUserDelete(@RequestBody AdminUser adminUser){
+        AdminBaseResult<AdminUser> result = new AdminBaseResult();
+        int deleteCount = adminService.adminUserDelete(adminUser);
+        result.setIsSuccess((deleteCount>0)+"");
         return result;
     }
 }

@@ -1,5 +1,11 @@
 <template>
   <div class="app">
+    <!-- :interval间隔 -->
+    <el-carousel :interval="10000" type="card" height="40px">
+      <el-carousel-item v-for="item in items" :key="item.text">
+        {{ item.text }}
+      </el-carousel-item>
+    </el-carousel>
     <el-container>
       <el-aside class="app-side app-side-left" :class="isCollapse ? 'app-side-collapsed' : 'app-side-expanded'">
         <div class="app-side-logo">
@@ -15,7 +21,7 @@
               </template>
               <el-menu-item-group>
                 <el-menu-item @click="leftMumClick('userList')" index="1-1">后台用户管理</el-menu-item>
-                <el-menu-item @click="leftMumClick('')" index="1-2">后台权限管理</el-menu-item>
+                <el-menu-item @click="leftMumClick('')" index="1-2">后台配置管理</el-menu-item>
               </el-menu-item-group>
             </el-submenu>
           </el-menu>
@@ -75,7 +81,18 @@
       return {
         defaultActive: "",
         username: '彭伟',
-        isCollapse: false
+        isCollapse: false,
+        items: [
+          {
+            text:'我的世界，只有你懂!'
+          },
+          {
+            text:'笑只是个表情，与快乐无关!'
+          },
+          {
+            text:'你的冷暖，我记心上!'
+          }
+        ]
       }
     },
     methods: {
@@ -120,5 +137,17 @@
 </script>
 
 <style>
-
+  .el-carousel__item h3 {
+    color: #000000;
+    font-size: 14px;
+    opacity: 0.75;
+    line-height: 200px;
+    margin: 0;
+  }
+  .el-carousel__item:nth-child(2n) {
+    background-color: #85bf71;
+  }
+  .el-carousel__item:nth-child(2n+1) {
+    background-color: #8585e6;
+  }
 </style>

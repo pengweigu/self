@@ -31,4 +31,9 @@ public class AdminServiceImpl implements AdminService {
     public List<AdminUser> adminUserList(AdminUser adminUser) {
         return adminUserMapper.selectByAdminUser(adminUser);
     }
+
+    @Override
+    public int adminUserDelete(AdminUser adminUser) {
+        return adminUserMapper.deleteByPrimaryKey(adminUser.getId());
+    }
 }

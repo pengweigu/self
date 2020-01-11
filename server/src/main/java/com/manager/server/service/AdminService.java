@@ -11,4 +11,6 @@ public interface AdminService {
     boolean dologin(AdminUser adminUser);
 
     List<AdminUser> adminUserList(AdminUser adminUser);
+
+    int adminUserDelete(AdminUser adminUser);
 }
