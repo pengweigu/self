@@ -39,19 +39,78 @@
     </el-table>
     <!--编辑窗口-->
     <el-dialog title="编辑" :visible.sync="editDialog" width="50%" :before-close="handleClose">
-      <span>编辑信息</span>
+      <el-form :inline="true" label-width="100px" :model="formEdit" ref="formEdit" class="demo-form-inline">
+        <el-input type="hidden" v-model="formEdit.id"></el-input>
+        <!--1-->
+        <el-row>
+          <el-form-item label="账号">
+            <el-input :disabled="true" v-model="formEdit.account"></el-input>
+          </el-form-item>
+        </el-row>
+        <el-row>
+          <el-form-item label="姓名">
+            <el-input v-model="formEdit.name"></el-input>
+          </el-form-item>
+        </el-row>
+        <!--3-->
+        <el-row>
+          <el-form-item label="性别">
+            <el-select v-model="formEdit.sex" style="width: 200px;">
+              <el-option label="男" value="1"></el-option>
+              <el-option label="女" value="2"></el-option>
+            </el-select>
+          </el-form-item>
+        </el-row>
+        <el-row>
+          <el-form-item label="手机">
+            <el-input v-model="formEdit.phone"></el-input>
+          </el-form-item>
+        </el-row>
+        <el-row>
+          <el-form-item label="邮箱">
+            <el-input v-model="formEdit.email"></el-input>
+          </el-form-item>
+        </el-row>
+      </el-form>
       <span slot="footer" class="dialog-footer">
-        <el-button @click="editDialog = false">取 消</el-button>
+        <el-button @click="formEdit = {}">重 置</el-button>
         <el-button type="primary" @click="">确 定</el-button>
       </span>
     </el-dialog>
     <!--查看窗口-->
     <el-dialog title="查看" :visible.sync="viewDialog" width="50%" :before-close="handleClose">
-      <span>查看信息</span>
-      <span slot="footer" class="dialog-footer">
-        <el-button @click="viewDialog = false">取 消</el-button>
-        <el-button type="primary" @click="">确 定</el-button>
-      </span>
+      <el-form :inline="true" label-width="100px" :model="formView" ref="formView" class="demo-form-inline">
+        <!--1-->
+        <el-row>
+          <el-form-item label="账号">
+            <el-input v-model="formView.account"></el-input>
+          </el-form-item>
+        </el-row>
+        <el-row>
+          <el-form-item label="姓名">
+            <el-input v-model="formView.name"></el-input>
+          </el-form-item>
+        </el-row>
+        <!--3-->
+        <el-row>
+          <el-form-item label="性别">
+            <el-select v-model="formView.sex" style="width: 200px;">
+              <el-option label="男" value="1"></el-option>
+              <el-option label="女" value="2"></el-option>
+            </el-select>
+          </el-form-item>
+        </el-row>
+        <el-row>
+          <el-form-item label="手机">
+            <el-input v-model="formView.phone"></el-input>
+          </el-form-item>
+        </el-row>
+        <el-row>
+          <el-form-item label="邮箱">
+            <el-input v-model="formView.email"></el-input>
+          </el-form-item>
+        </el-row>
+      </el-form>
     </el-dialog>
   </div>
 </template>
@@ -63,6 +122,8 @@
         tableData: [],
         editDialog: false,
         viewDialog: false,
+        formView:{},
+        formEdit:{},
       }
     },
     created() {
@@ -97,10 +158,12 @@
       },
       editAdminUser(row){
         const vm = this;
+        vm.formEdit = row;
         vm.editDialog = true;
       },
       viewAdminUser(row){
         const vm = this;
+        vm.formView = row;
         vm.viewDialog = true;
       }
     }
