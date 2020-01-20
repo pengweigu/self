@@ -21,7 +21,7 @@
               </template>
               <el-menu-item-group>
                 <el-menu-item @click="leftMumClick('userList')" index="1-1">后台用户管理</el-menu-item>
-                <el-menu-item @click="leftMumClick('')" index="1-2">后台配置管理</el-menu-item>
+                <el-menu-item @click="leftMumClick('confList')" index="1-2">后台配置管理</el-menu-item>
               </el-menu-item-group>
             </el-submenu>
           </el-menu>

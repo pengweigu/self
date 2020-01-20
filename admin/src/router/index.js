@@ -5,6 +5,7 @@ import adminReg from '@/components/adminReg'
 import adminIndex from '@/components/index'
 import welcome from '@/components/welcome/welcome'
 import userList from '@/components/user/userList'
+import confList from '@/components/conf/confList'
 
 Vue.use(Router)
 
@@ -29,6 +30,11 @@ export default new Router({
           path:'/userList',
           name:'userList',
           component:userList
+        },
+        {
+          path:'/confList',
+          name:'confList',
+          component:confList
         }
       ]
     },

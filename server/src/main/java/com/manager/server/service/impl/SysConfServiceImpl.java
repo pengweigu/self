@@ -6,6 +6,8 @@ import com.manager.server.service.SysConfService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service("sysConfServiceImpl")
 public class SysConfServiceImpl implements SysConfService {
 
@@ -16,5 +18,11 @@ public class SysConfServiceImpl implements SysConfService {
     public String save(SysConf sysConf) {
         int insert = sysConfMapper.insert(sysConf);
         return insert + "";
+    }
+
+    @Override
+    public List<SysConf> list(SysConf sysConf) {
+        List<SysConf> sysConfs = sysConfMapper.selectBySysConf(sysConf);
+        return sysConfs;
     }
 }
