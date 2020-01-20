@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * 系统配置api
+ */
 @RestController
 @RequestMapping("/admin/sys")
 public class AdminSysConfApi {
