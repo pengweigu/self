@@ -5,8 +5,8 @@
       stripe
       style="width: 100%">
       <el-table-column
-        prop="code"
-        label="编码">
+        prop="name"
+        label="描述">
       </el-table-column>
       <el-table-column
         prop="value"

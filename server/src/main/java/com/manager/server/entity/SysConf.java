@@ -1,5 +1,7 @@
 package com.manager.server.entity;
 
+import com.manager.server.enums.EnumSysConfCode;
+
 import java.io.Serializable;
 
 public class SysConf implements Serializable {
@@ -196,5 +198,9 @@ public class SysConf implements Serializable {
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
+    }
+
+    public String getName(){
+        return EnumSysConfCode.getDescByCode(this.getCode());
     }
 }
