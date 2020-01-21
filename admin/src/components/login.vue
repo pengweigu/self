@@ -5,7 +5,7 @@
     <!-- :interval间隔 -->
     <el-carousel :interval="3000" type="card" height="200px">
       <el-carousel-item v-for="item in items" :key="item.text">
-        <h3>{{ item.text }}</h3>
+        {{ item.text }}
       </el-carousel-item>
     </el-carousel>
     <!--1-->
@@ -84,8 +84,8 @@ export default {
       if(res.data.isSuccess == "true"){
         const obj = res.data.obj;
         const strs = obj.value.split("|"); //字符分割
-        for (let i=0;i<strs.length ;i++ ){
-          vm.items[i] = {"text":strs[i]};
+        for (let i=0;i<3 ;i++ ){
+          vm.items[i].text = strs[i];
         }
       }
     }).catch(function (error) {
