@@ -17,7 +17,7 @@ public class SysConfServiceImpl implements SysConfService {
     @Override
     public String save(SysConf sysConf) {
         int insert = sysConfMapper.insert(sysConf);
-        return insert + "";
+        return insert > 0 ? insert + "" : null;
     }
 
     @Override

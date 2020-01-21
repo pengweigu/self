@@ -5,6 +5,7 @@ import com.manager.server.response.BaseResult;
 import com.manager.server.response.admin.AdminBaseResult;
 import com.manager.server.service.SysConfService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -47,7 +48,7 @@ public class AdminSysConfApi {
     public BaseResult sysConfSave(@RequestBody SysConf sysConf){
         AdminBaseResult<SysConf> result = new AdminBaseResult();
         String id = sysConfService.save(sysConf);
-
+        result.setIsSuccess(!StringUtils.isEmpty(id) +"");
         return result;
     }
 
