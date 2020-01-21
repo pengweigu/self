@@ -4,6 +4,15 @@ import router from './router'
 
 import Axios from 'axios'
 Vue.prototype.$axios = Axios
+//全局拦截器
+Axios.interceptors.request.use(
+  function (config) {
+    console.log("config...")
+  },
+  function (err) {
+    console.log("err...")
+  }
+);
 
 //导入自定义工具js
 import CommonUtils from './user/CommonUtils'
