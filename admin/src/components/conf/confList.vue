@@ -15,12 +15,28 @@
       <el-table-column
         label="操作">
         <template slot-scope="scope">
-          <el-button type="text" size="small">查看</el-button>
-          <el-button type="text" size="small">编辑</el-button>
+          <el-button type="text" size="small" @click="editSysConf(scope.row)">编辑</el-button>
           <el-button type="text" size="small">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
+
+    <!--编辑窗口-->
+    <el-dialog title="编辑" :visible.sync="editDialog" width="50%">
+      <el-form :inline="true" label-width="100px" :model="formEdit" ref="formEdit" class="demo-form-inline">
+        <el-input type="hidden" v-model="formEdit.code"></el-input>
+        <!--1-->
+        <el-row>
+          <el-form-item label="内容">
+            <el-input v-model="formEdit.value"></el-input>
+          </el-form-item>
+        </el-row>
+      </el-form>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="formEdit = {}">重 置</el-button>
+        <el-button type="primary">确 定</el-button>
+      </span>
+    </el-dialog>
   </div>
 </template>
 <script>
@@ -30,8 +46,6 @@
       return {
         tableData: [],
         editDialog: false,
-        viewDialog: false,
-        formView:{},
         formEdit:{},
       }
     },
@@ -51,6 +65,11 @@
         }).catch(function (error) {
           vm.$message.error("查询列表数据异常！");
         });
+      },
+      editSysConf(row){
+        const vm = this;
+        vm.formEdit = row;
+        vm.editDialog = true;
       }
     }
   }

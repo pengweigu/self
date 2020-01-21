@@ -38,7 +38,7 @@
       </el-table-column>
     </el-table>
     <!--编辑窗口-->
-    <el-dialog title="编辑" :visible.sync="editDialog" width="50%" :before-close="handleClose">
+    <el-dialog title="编辑" :visible.sync="editDialog" width="50%">
       <el-form :inline="true" label-width="100px" :model="formEdit" ref="formEdit" class="demo-form-inline">
         <el-input type="hidden" v-model="formEdit.id"></el-input>
         <!--1-->
@@ -78,7 +78,7 @@
       </span>
     </el-dialog>
     <!--查看窗口-->
-    <el-dialog title="查看" :visible.sync="viewDialog" width="50%" :before-close="handleClose">
+    <el-dialog title="查看" :visible.sync="viewDialog" width="50%">
       <el-form :inline="true" label-width="100px" :model="formView" ref="formView" class="demo-form-inline">
         <!--1-->
         <el-row>
