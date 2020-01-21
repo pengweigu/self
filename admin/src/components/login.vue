@@ -36,17 +36,7 @@ export default {
   name: 'login',
   data () {
     return {
-      items: [
-        {
-          text:'我的世界，只有你懂!'
-        },
-        {
-          text:'笑只是个表情，与快乐无关!'
-        },
-        {
-          text:'你的冷暖，我记心上!'
-        }
-      ],
+      items: [{text:"欢迎"},{text:"欢迎"},{text:"欢迎"}],//跑马灯内容
       formlogin: {
         account: '',
         password: ''
@@ -87,7 +77,20 @@ export default {
     }
   },
   created() {
+    //获取跑马灯信息
+    var vm = this;
 
+    vm.$axios.post('/admin/sys/carousel.json',{}).then(function (res) {
+      if(res.data.isSuccess == "true"){
+        const obj = res.data.obj;
+        const strs = obj.value.split("|"); //字符分割
+        for (let i=0;i<strs.length ;i++ ){
+          vm.items[i] = {"text":strs[i]};
+        }
+      }
+    }).catch(function (error) {
+      console.log("获取跑马灯信息失败...")
+    });
   }
 }
 </script>

@@ -10,6 +10,8 @@ public class AdminBaseResult<T> extends BaseResult {
 
     private String msgInfo;
 
+    private T obj;
+
     private List<T> items;
 
     public List<T> getItems() {
@@ -34,5 +36,13 @@ public class AdminBaseResult<T> extends BaseResult {
 
     public void setMsgInfo(String msgInfo) {
         this.msgInfo = msgInfo;
+    }
+
+    public T getObj() {
+        return obj;
+    }
+
+    public void setObj(T obj) {
+        this.obj = obj;
     }
 }
