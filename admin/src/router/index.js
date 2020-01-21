@@ -44,4 +44,4 @@ export default new Router({
       component: adminReg
     }
   ]
-})
+});
