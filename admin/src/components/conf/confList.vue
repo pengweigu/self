@@ -28,13 +28,13 @@
         <!--1-->
         <el-row>
           <el-form-item label="内容">
-            <el-input v-model="formEdit.value"></el-input>
+            <el-input type="textarea" :row="3" v-model="formEdit.value"></el-input>
           </el-form-item>
         </el-row>
       </el-form>
       <span slot="footer" class="dialog-footer">
         <el-button @click="formEdit = {}">重 置</el-button>
-        <el-button type="primary">确 定</el-button>
+        <el-button type="primary" @click="updateInfo()">确 定</el-button>
       </span>
     </el-dialog>
   </div>
@@ -70,6 +70,18 @@
         const vm = this;
         vm.formEdit = row;
         vm.editDialog = true;
+      },
+      updateInfo(){
+        const vm = this;
+        vm.$axios.post('/admin/sys/save.json',vm.formEdit).then(function (res) {
+          if (res.data.isSuccess == 'true') {
+            vm.$message.success("修改成功！");
+          } else {
+            vm.$message.error("修改失败！");
+          }
+        }).catch(function (error) {
+          vm.$message.error("修改异常！");
+        });
       }
     }
   }
