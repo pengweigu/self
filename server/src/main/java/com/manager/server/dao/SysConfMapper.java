@@ -43,6 +43,4 @@ public interface SysConfMapper {
      * @mbg.generated
      */
     int updateByPrimaryKey(SysConf record);
-
-    List<SysConf> selectBySysConf(SysConf sysConf);
 }
