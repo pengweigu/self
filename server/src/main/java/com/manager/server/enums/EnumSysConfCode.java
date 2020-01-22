@@ -8,6 +8,7 @@ import java.util.Map;
  * @author pengwei21684
  */
 public enum  EnumSysConfCode {
+    //系统跑马灯配置code
     CAROUSEL("跑马灯","carousel");
 
     private String desc;
