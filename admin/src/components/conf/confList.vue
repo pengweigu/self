@@ -24,7 +24,7 @@
     <!--编辑窗口-->
     <el-dialog title="编辑" :visible.sync="editDialog" width="50%">
       <el-form :inline="true" label-width="100px" :model="formEdit" ref="formEdit" class="demo-form-inline">
-        <el-input type="hidden" v-model="formEdit.code"></el-input>
+        <el-input type="hidden" v-model="formEdit.id"></el-input>
         <!--1-->
         <el-row>
           <el-form-item label="内容">
