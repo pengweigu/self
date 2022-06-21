@@ -73,7 +73,7 @@
                         <groupId>mysql</groupId>
                         <artifactId>mysql-connector-java</artifactId>
                         <!--<version>8.0.12</version>--><!--生成的sql语句缺失-->
-                        <version>5.1.35</version>
+                        <version>8.0.28</version>
                     </dependency>
                     <dependency>
                         <groupId>org.mybatis.generator</groupId>
